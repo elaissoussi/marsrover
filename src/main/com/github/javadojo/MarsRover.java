@@ -1,5 +1,8 @@
 package com.github.javadojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The Mars rover is programmed to drive around Mars.
  * Its programming is very simple. The commands are the following:
@@ -34,12 +37,17 @@ package com.github.javadojo;
 public class MarsRover {
 
     static final String LINE_SEPARATOR = System.getProperty("line.separator");
+    List<Command> commands = new ArrayList<Command>();
 
     public MarsRover(String operations) {
+        MarsRoverParser parser = new DefaultParser();
+        commands = parser.parseCommands(operations);
     }
 
     public String path() {
-        throw new IllegalStateException("Not implemented");
+        MarsRoverPrinter printer = new DefaultPrinter();
+        PathMarsRover paths=new PathMarsRover(commands);
+        return printer.print(paths,LINE_SEPARATOR);
     }
 
     public MarsRover turnLeft() {
