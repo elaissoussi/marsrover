@@ -11,18 +11,20 @@ public class PathMarsRover {
 
     public PathMarsRover(List<Command> commands) {
         for (Command currentCommand : commands) {
-            Path path = PathFactory.createPath(currentCommand);
+            Path path = currentCommand.currentdirection();
             paths.add(path);
         }
     }
 
     public String print(String lineSeparator) {
         List<String> pathsString = new ArrayList<String>();
+
         pathsString.add(MARS_ROVER_LANDED);
         for (Path path : paths) {
-            pathsString.add(path.print());
+            path.print(pathsString, lineSeparator);
         }
-        pathsString.set(pathsString.size() - 1, CURRENT_POSITION);
+
+        pathsString.add(CURRENT_POSITION);
         pathsString.add(lineSeparator);
         return String.join("", pathsString);
     }

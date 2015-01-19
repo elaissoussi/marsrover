@@ -1,8 +1,11 @@
 package com.github.javadojo;
 
+import java.util.List;
+
 
 public interface Path {
 
-    String print();
+
+    void print(List<String> pathsString, String lineSeparator);
 
 }

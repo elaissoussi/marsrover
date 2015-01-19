@@ -2,11 +2,17 @@ package com.github.javadojo;
 
 import java.util.List;
 
-public class WestEastDirection implements Path {
+
+public class NorthSouth implements Path {
+
+  
+
+    
 
     @Override
     public void print(List<String> pathsString, String lineSeparator) {
-        pathsString.add("-");
+        pathsString.add(lineSeparator);   
+        pathsString.add("|");        
     }
 
 }

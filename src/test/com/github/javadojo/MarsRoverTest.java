@@ -17,18 +17,19 @@ public class MarsRoverTest {
 		assertThat(new MarsRover("s").path(), equalTo("X*" + LINE_SEPARATOR));
 	}
 
-	@Test@Ignore
+	@Test
 	public void driveEastForABitLonger() {
 		assertThat(new MarsRover("ssss").path(), equalTo("X---*"
 				+ LINE_SEPARATOR));
 	}
 
-	@Test@Ignore
+	@Test
 	public void driveNorth() {
 		String expectedPath = new StringBuilder().append("*")
 				.append(LINE_SEPARATOR).append("|").append(LINE_SEPARATOR)
 				.append("|").append(LINE_SEPARATOR).append("X")
 				.append(LINE_SEPARATOR).toString();
+		System.out.println(new MarsRover("lsss").path());
 		assertThat(new MarsRover("lsss").path(), equalTo(expectedPath));
 	}
 
